@@ -1,0 +1,16 @@
+SELECT d.name AS donor_name, COUNT(dr.drid) AS donation_count
+FROM donor d
+JOIN donorreg dr ON d.donorid = dr.donorid
+WHERE YEAR(dr.date) = 2023
+GROUP BY d.name
+ORDER BY donation_count DESC;
+
+
+
+
+
+
+select donor.name,donor.phone,donor.age,donorreg.date,mygroup.group_name 
+from donor 
+join donorreg on donor.donorid=donorreg.donorid join mygroup on mygroup.groupid=donorreg.groupid 
+where mygroup.group_name='GroupA';
